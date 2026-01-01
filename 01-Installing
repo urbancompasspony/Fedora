@@ -41,6 +41,11 @@ EOF
 
 sudo dnf install anydesk
 
+# OnlyOffice
+sudo dnf install https://download.onlyoffice.com/repo/centos/main/noarch/onlyoffice-repo.noarch.rpm
+sudo dnf update
+sudo dnf install onlyoffice-desktopeditors -y
+
 # Ventoy
 sudo dnf copr enable  karlisk/ventoy
 sudo dnf install ventoy
