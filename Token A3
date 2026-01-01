@@ -1,1 +1,12 @@
-wget https://assets.ctfassets.net/zuadwp3l2xby/1Z2iFVjAZME5Ncdb0ZywoL/521559a5a452867d9056793b95549ee6/SafeSign_IC_Standard_Linux_redhat9_4.2.1.0-AET.000.zip
+sudo systemctl enable --now pcscd
+
+sudo dnf install pcsc-lite-ccid pcsc-tools opensc nss-tools
+
+$ rm -fr ~/.pki/nssdb
+$ mkdir -p ~/.pki/nssdb
+$ certutil -d ~/.pki/nssdb -N
+
+$ cd ~
+$ modutil -dbdir sql:.pki/nssdb/ -add "Safenet 5110" -libfile "/usr/lib/libeToken.so"
+$ modutil -dbdir sql:.pki/nssdb/ -list
+
