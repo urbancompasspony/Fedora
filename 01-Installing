@@ -17,5 +17,46 @@ filelight smb4k plasma-disks kolourpaint granatier okteta krename timeshift kget
 iperf traceroute arp-scan speedtest-cli samba rsync rclone sshpass curl rclone openvpn qbittorrent nmap yt-dlp smartmontools \
 7zip cronie zip unzip dialog btrfs-progs cifs-utils inxi btop iotop cmatrix parallel rdesktop rpi-imager android-tools webp-pixbuf-loader gthumb bash-language-server catfish \
 torbrowser-launcher tree gparted gnome-disk-utility k3b audacity thunderbird libreoffice-langpack-pt-BR java-latest-openjdk thunderbird vlc remmina freerdp libvncserver kpat gimp blender obs-studio kdenlive wine \
+luanti steam terminator kio-zeroconf kio-gdrive kpat snapper xmlstarlet isoimagewriter jq
 
-luanti steam terminator  trippy oha kio-zeroconf kio-gdrive lact kup bup ponysay kpat snapper xmlstarlet freerdp2 drawio-desktop isoimagewriter jq
+# Google Chrome
+sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+
+# Microsoft Edge
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo dnf config-manager addrepo --from-repofile=https://packages.microsoft.com/yumrepos/edge/config.repo
+sudo dnf install microsoft-edge-stable
+
+# AnyDesk
+sudo -i
+
+cat > /etc/yum.repos.d/AnyDesk-Fedora.repo << "EOF" 
+[anydesk]
+name=AnyDesk Fedora - stable
+baseurl=http://rpm.anydesk.com/fedora/$basearch/
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://keys.anydesk.com/repos/RPM-GPG-KEY
+EOF
+
+sudo dnf install anydesk
+
+# Ventoy
+sudo dnf copr enable  karlisk/ventoy
+sudo dnf install ventoy
+
+# GRUB PARAMETERS #
+Want Mitigations Off? sudo nano /etc/default/grub
+mitigations=off
+sudo grub2-mkconfig -o /etc/grub2.cfg
+
+# ROCm
+sudo dnf install rocm-hip rocm-opencl rocminfo opencl-headers opencl-headers radeontop
+
+sudo systemctl enable --now sshd docker libvirtd
+
+To fstab:
+//172.20.0.2/particular /mnt/particular cifs credentials=/home/ztge/.smb,iocharset=utf8,file_mode=0777,dir_mode=0777,noperm,user,vers=2.1,nofail,noauto 0 0
+
+If connected to network will try mounting, do not use it unless really needed!
+x-systemd.automount,x-systemd.requires=network-online.target,x-systemd.device-timeout=3
