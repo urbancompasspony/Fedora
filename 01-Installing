@@ -1,4 +1,7 @@
 
+sudo nano /etc/selinux/config
+Change SELINUX=enforcing to SELINUX=disabled
+
 sudo dnf update
 sudo dnf upgrade
 sudo dnf autoremove
