@@ -1,12 +1,3 @@
-sudo systemctl enable --now pcscd
-
-sudo dnf install pcsc-lite-ccid pcsc-tools opensc nss-tools
-
-$ rm -fr ~/.pki/nssdb
-$ mkdir -p ~/.pki/nssdb
-$ certutil -d ~/.pki/nssdb -N
-
-$ cd ~
-$ modutil -dbdir sql:.pki/nssdb/ -add "Safenet 5110" -libfile "/usr/lib/libeToken.so"
-$ modutil -dbdir sql:.pki/nssdb/ -list
+NAO FUNCIONA.
+DESISTA.
 
