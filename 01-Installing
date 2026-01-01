@@ -1,0 +1,21 @@
+
+sudo dnf update
+sudo dnf upgrade
+sudo dnf autoremove
+
+curl -sSL https://raw.githubusercontent.com/urbancompasspony/bashrc/main/install.sh | bash
+
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf update
+
+sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/local/bin/yq
+sudo chmod +x /usr/local/bin/yq
+
+sudo dnf install docker-buildx docker \
+qemu libvirt-dbus bridge-utils virt-manager \
+filelight smb4k plasma-disks kolourpaint granatier okteta krename timeshift kget gnome-nettool duf detox fdupes keepassxc \
+iperf traceroute arp-scan speedtest-cli samba rsync rclone sshpass curl rclone openvpn qbittorrent nmap yt-dlp smartmontools \
+7zip cronie zip unzip dialog btrfs-progs cifs-utils inxi btop iotop cmatrix parallel rdesktop rpi-imager android-tools webp-pixbuf-loader gthumb bash-language-server catfish \
+torbrowser-launcher tree gparted gnome-disk-utility k3b audacity thunderbird libreoffice-langpack-pt-BR java-latest-openjdk thunderbird vlc remmina freerdp libvncserver kpat gimp blender obs-studio kdenlive wine \
+
+luanti steam terminator  trippy oha kio-zeroconf kio-gdrive lact kup bup ponysay kpat snapper xmlstarlet freerdp2 drawio-desktop isoimagewriter jq
